@@ -12,20 +12,20 @@ struct List {
 
 //Prints the list to the provided output stream
 void print( List* l, std::ostream &out){
-    while ( l != NULL ){
-        //As long as l is not null....
-        out << l->value; //Print out it's value
-        l = l->next; //Move on to the next value
+   if ( l == NULL)
+   return;
+   std::cout << l->value;
+   print( l->next, out);
     }
-}
+
 
 //Returns the number of items in the list
 int length(List* l){
-    if ( 1== NULL ){
-    return 0;
-     } else {
-    return 1 + length( l-> next );
-     }
+   int length = 0;
+   while ( l != NULL ){
+    l = l->next;
+    length++;
+   }
 }
 
 //Get the Nth item from the list
